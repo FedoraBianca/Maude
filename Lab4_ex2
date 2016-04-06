@@ -1,0 +1,17 @@
+fth TRIV# is
+  including TRIV .
+  op #_ : Elt -> Elt .
+endfth
+  
+fmod LIST#{ X :: TRIV#} is
+  sort List{X} .
+  subsort X$Elt < List{X} .
+  op nil : -> List{X} .
+  op _ _ : List{X} List{X} -> List{X} [assoc id: nil] .
+  op apply# : List{X} -> List{X} .
+  var I : X$Elt .
+  var L : List{X} .
+  eq apply#(nil) = nil .
+  eq apply#(I L) = (# I) apply#(L) .
+endfm
+  
