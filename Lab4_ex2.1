@@ -15,3 +15,14 @@ fmod LIST#{ X :: TRIV#} is
   eq apply#(I L) = (# I) apply#(L) .
 endfm
   
+view Triv#ToInt from TRIV# to INT is
+  sort Elt to Int .
+  op #_ to -_ .
+endv
+  
+fmod Fist#ofInts is
+  protecting LIST#{Triv#ToInt} .
+endfm
+  
+red apply#( 2 3 4) .
+  
