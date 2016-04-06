@@ -1,0 +1,22 @@
+fmod LIST is
+  protecting INT .
+  sort NList List .
+  subsort Int < NList < List .
+  op nil : -> List .
+  op _ _ : Int List -> NList [id: nil] .
+  op count : List -> List .
+  op double : List -> List .
+  op del : List -> List .
+  vars A B C : Int .
+  vars L M : List .
+  eq count(A) = if A >= 3 then 1 else 0 fi .
+  eq count(A L) = if (A >= 3) then ( 1 + count(L)) else count(L) fi .
+  eq double(A) = if ( 2 divides A and A =/= 1) then ( A A ) else A fi .
+  eq double(A L) = if (2 divides A and A =/= 1) then ( A A double(L)) else A double (L) fi .
+  eq del(A) = A .
+  eq del(A B) = A B .
+  eq del (A B C) = A B .
+  eq del (A B C L) = A B del(L) .
+endfm
+
+***red del (1 2 3 4 5 6 7 8 9 10) .
