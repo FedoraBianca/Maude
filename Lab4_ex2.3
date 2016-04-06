@@ -16,7 +16,8 @@ fmod LIST##{ X :: TRIV##} is
   eq apply#(nil) = nil .
   eq apply#(I L) = (# I) apply#(L) .
   eq apply##(nil) = nil .
-  eq apply##(I J L) = (I ## J) apply##(J L) .
+  eq apply##(I) = I .
+  eq apply##(I J L) = apply##((I ## J) L) .
 endfm
   
 view Triv##ToFloat from TRIV## to FLOAT is
