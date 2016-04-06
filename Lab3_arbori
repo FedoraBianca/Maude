@@ -12,10 +12,12 @@ fmod TREE is
   sort Tree .
   op empty : -> Tree .
   op _ _ _ : Tree Int Tree -> Tree .
-  op mirror(empty) = empty .
-  op mirror(L I R) = mirror(R) I mirror (L) .
-  vars S D : Tree .
-  vars X R : Int .
+  op mirror : Tree -> Tree .
+  vars L R : Tree .
+  vars A B : Int .
+  eq mirror(empty) = empty .
+  eq mirror(L A R) = mirror(R) A mirror (L) .
+
 endfm
 
 red mirror((empty 3 ( empty 1 empty )) 5 ((empty 6 empty) 2 empty) .
