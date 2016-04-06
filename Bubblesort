@@ -1,0 +1,27 @@
+fmod LIST is
+  protecting INT .
+  sorts NList List .
+  subsort Int < NList < List .
+  op nil : -> List .
+  op _ _ : Int List -> NList [id: nil] .
+  op append : List List -> List .
+  op iterate : List -> List .
+  op cutfinal : List -> List .
+  op getfinal : List -> Int .
+  op bs : List -> List .
+  var A B : Int .
+  var L M : List .
+  eq append (nil, M) = M .
+  eq append (M , nil) = M .
+  eq append ( A L, M ) = A append ( L , M ) .
+  eq iterate(A) = A .
+  eq iterate(A B L) = if A < B then A iterate ( B L ) else B iterate ( A L) fi .
+  eq getfinal(A) = A .
+  eq getfinal(L A) = A .
+  eq cutfinal(A) = A .
+  eq cutfinal(L A) = L .
+  
+endfm
+
+set trace on .
+red cutfinal(6 5 3 1 8 7 2 4) .
