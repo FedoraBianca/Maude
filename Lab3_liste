@@ -1,17 +1,17 @@
 fmod LIST-INT2 is
-
-protecting INT .
-sorts NList List .
-subsort Int < NList < List .
-op nil : -> List .
-op _ _ : Int List -> NList [id: nil] .
-op _ in _ : Int List -> Bool . 
-var A B : Int . 
-var L M : List .
-eq A in nil = false .
-eq A in (B L) = (A == B) or (A in L) . 
+	protecting INT .
+	sorts NList List .
+	subsort Int < NList < List .
+	op nil : -> List .
+	op _ _ : Int List -> NList [id: nil] .
+	op length : List -> Nat .
+	op _ in _ : Int List -> Bool . 
+	var A B : Int . 
+	var L M : List .
+	eq length(nil) = 0 .
+	eq length(A L) = 1 + length(L) .
+	eq A in nil = false .
+	eq A in (B L) = (A == B) or (A in L) . 
 endfm
-
-red 2 in 5 6 3 .
 
 
