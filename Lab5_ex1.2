@@ -9,3 +9,13 @@ fmod PAIR{X :: TRIV, Y :: TRIV} is
 	eq first( A , B ) = A .
 	eq second( A , B ) = B .
 endfm
+
+view TrivToInt from TRIV to INT is
+  sort Elt to Int .
+endv
+
+fmod PairofInts is
+  protecting PAIR{TrivToInt,TrivToInt}.
+endfm
+
+red first(2,4) .
