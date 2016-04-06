@@ -20,8 +20,10 @@ fmod LIST is
   eq getfinal(A L ) = getfinal(L) .
   eq cutfinal (A) = nil .
   eq cutfinal (A L) = A cutfinal(L) .
+  eq bs(A) = A .
+  eq bs(L) = append( bs(cutfinal((iterate(L)))), getfinal(iterate(L))) .
   
 endfm
 
 
-red cutfinal(1 2 3 6 12) .
+red bs(6 5 3 1 8 7 2 4) .
