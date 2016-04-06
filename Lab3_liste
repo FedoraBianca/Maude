@@ -7,6 +7,7 @@ fmod LIST-INT2 is
   op length : List -> Nat .
   op _ in _ : Int List -> Bool . 
   op append : List List -> List .
+  op rev : List -> List .
   var A B : Int . 
   var L M : List .
   eq length(nil) = 0 .
@@ -16,7 +17,11 @@ fmod LIST-INT2 is
   eq append (nil, M) = M .
   eq append (M , nil) = M .
   eq append ( A L, M ) = A append ( L , M ) .
+  eq rev(nil) = nil .
+  eq rev(A L) = append( rev(L) , A ) .
+
 endfm
 
 ***red append ( 2 2 , 3 4 5 ) .
+***red rev( 2 3 5) .
 
