@@ -17,11 +17,11 @@ fmod LIST is
   eq iterate(A) = A .
   eq iterate(A B L) = if A < B then A iterate ( B L ) else B iterate ( A L) fi .
   eq getfinal(A) = A .
-  eq getfinal(L A) = A .
-  eq cutfinal(A) = A .
-  eq cutfinal(L A) = L .
+  eq getfinal(A L ) = getfinal(L) .
+  eq cutfinal (A) = nil .
+  eq cutfinal (A L) = A cutfinal(L) .
   
 endfm
 
-set trace on .
-red cutfinal(6 5 3 1 8 7 2 4) .
+
+red cutfinal(1 2 3 6 12) .
