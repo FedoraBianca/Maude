@@ -1,0 +1,16 @@
+fmod LIST{X :: TRIV} is
+  sort List{X} .
+  subsort X$Elt < List{X} .
+  op nil : -> List{X} .
+  op _ _ : List{X} List{X} -> List{X} [assoc comm id: nil] .
+endfm
+
+view TrivToInt from TRIV to INT is
+  sort Elt to Int .
+endv
+  
+fmod ListofInts is
+  protecting LIST{TrivToInt} .
+endfm
+  
+red 1 2 4 nil 3 5 nil .
